@@ -27,10 +27,10 @@ end
 
 #Configure the twitter client
 client = Twitter::Streaming::Client.new do |config|
-  config.consumer_key       = 'BEyMdaCNuItG43aoJuGlyBPHu'
-  config.consumer_secret    = 'Z7rnIKvAGv2KEykPDwhRtRbuyo8uWsx2qDAfulWS9uLdQ40nh1'
-  config.access_token        = '2823769104-PUGMstxdznlEvLKe5zhHa0UzTpGbdO1LNZuCVoo'
-  config.access_token_secret = '5upCsHJrd3iuAnZuGqdo4k6AVAxAqTkCAeu8xfKmNBReq'
+  config.consumer_key       = '[redacted]'
+  config.consumer_secret    = '[redacted]'
+  config.access_token        = '[redacted]'
+  config.access_token_secret = '[redacted]'
 end
 
 # Ask about the parameters
@@ -69,7 +69,7 @@ client.sample do |tweet|
         @retweet_sightings[original_tweet.text] = sighting
       end
       
-      # prune the sightings
+      # prune the sightings based on the minutes that the user specified
       oldest_desired_sighting = n.minutes.ago
       @retweet_sightings.each do |key,value|
         value.prune_sightings(before_date=oldest_desired_sighting)
